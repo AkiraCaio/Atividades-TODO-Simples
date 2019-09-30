@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3pa-6a-z9H">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Atividades-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ProjetoIOS1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="heF-d2-NSD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="heF-d2-NSD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LPl-H0-Mct"/>
+                            <constraint firstItem="heF-d2-NSD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MNL-Uy-wAe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="heF-d2-NSD" secondAttribute="trailing" id="g1f-hI-2EV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="heF-d2-NSD" secondAttribute="bottom" id="jqS-hH-axR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Atividades" id="CeN-Vx-V48">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xMH-9r-q2s">
+                            <connections>
+                                <segue destination="dvw-Ck-lXt" kind="show" identifier="exibirAtividadeDetalhe" id="IW0-IA-xes"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="heF-d2-NSD" id="jhX-v3-XBt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Criando Atividades-->
+        <scene sceneID="61C-tq-EGJ">
+            <objects>
+                <viewController id="dvw-Ck-lXt" customClass="CriandoAtividadeViewController" customModule="ProjetoIOS1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7iv-cS-y6D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome da atividade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f9r-MM-ioM">
+                                <rect key="frame" x="16" y="205" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="McQ-Iw-KLT">
+                                <rect key="frame" x="16" y="356" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Baixa"/>
+                                    <segment title="Media"/>
+                                    <segment title="Alta"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prioridade da Atividade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56P-kl-8qs">
+                                <rect key="frame" x="16" y="303" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Atividade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyE-Lp-AY6">
+                                <rect key="frame" x="16" y="152" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gyE-Lp-AY6" firstAttribute="top" secondItem="Gv1-WX-PlM" secondAttribute="top" constant="64" id="4nu-1Z-bhX"/>
+                            <constraint firstItem="56P-kl-8qs" firstAttribute="leading" secondItem="f9r-MM-ioM" secondAttribute="leading" id="5md-c7-yf4"/>
+                            <constraint firstItem="McQ-Iw-KLT" firstAttribute="centerX" secondItem="Gv1-WX-PlM" secondAttribute="centerX" id="8Hf-f8-ZHX"/>
+                            <constraint firstItem="f9r-MM-ioM" firstAttribute="leading" secondItem="Gv1-WX-PlM" secondAttribute="leading" constant="16" id="9D4-aF-fzh"/>
+                            <constraint firstItem="McQ-Iw-KLT" firstAttribute="leading" secondItem="56P-kl-8qs" secondAttribute="leading" id="BHC-R2-nc3"/>
+                            <constraint firstItem="Gv1-WX-PlM" firstAttribute="trailing" secondItem="f9r-MM-ioM" secondAttribute="trailing" constant="16" id="E5U-63-1Ls"/>
+                            <constraint firstItem="McQ-Iw-KLT" firstAttribute="trailing" secondItem="56P-kl-8qs" secondAttribute="trailing" id="HAX-2V-k8m"/>
+                            <constraint firstItem="McQ-Iw-KLT" firstAttribute="top" secondItem="56P-kl-8qs" secondAttribute="bottom" constant="32" id="IID-vY-LJu"/>
+                            <constraint firstItem="56P-kl-8qs" firstAttribute="centerX" secondItem="Gv1-WX-PlM" secondAttribute="centerX" id="KXX-Wj-vmE"/>
+                            <constraint firstItem="gyE-Lp-AY6" firstAttribute="leading" secondItem="Gv1-WX-PlM" secondAttribute="leading" constant="16" id="Lct-6G-mAR"/>
+                            <constraint firstItem="f9r-MM-ioM" firstAttribute="top" secondItem="gyE-Lp-AY6" secondAttribute="bottom" constant="32" id="PwA-au-30l"/>
+                            <constraint firstItem="Gv1-WX-PlM" firstAttribute="trailing" secondItem="gyE-Lp-AY6" secondAttribute="trailing" constant="16" id="RRr-q0-N2F"/>
+                            <constraint firstItem="56P-kl-8qs" firstAttribute="trailing" secondItem="f9r-MM-ioM" secondAttribute="trailing" id="VuV-gn-HJS"/>
+                            <constraint firstItem="56P-kl-8qs" firstAttribute="top" secondItem="f9r-MM-ioM" secondAttribute="bottom" constant="64" id="lgj-Sf-f5L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gv1-WX-PlM"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Criando Atividades" id="aru-YE-AbN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3rS-MF-PbF">
+                            <connections>
+                                <segue destination="e9p-g3-58u" kind="unwind" identifier="novo" unwindAction="unwindSalvarWithSegue:" id="jPY-dd-jh2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ativadeNome" destination="f9r-MM-ioM" id="n5p-l3-cuV"/>
+                        <outlet property="atividadePrioridade" destination="McQ-Iw-KLT" id="PsB-Hb-uE7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xt3-E1-HN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="e9p-g3-58u" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2205.7971014492755" y="138.61607142857142"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Gyj-qZ-APr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3pa-6a-z9H" customClass="Main" customModule="ProjetoIOS1" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Av1-KW-bk7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="foY-un-y9r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ev-0s-xQY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
