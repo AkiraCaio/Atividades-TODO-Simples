@@ -12,11 +12,6 @@ import UIKit
 
         var atividades: [[Atividade]] = []
         
-        var atividadeSelecionada: Atividade?
-        var atividadeSelecionadaPosicao: [Int] = []
-        
-        var adicionados: Int = 0
-        
         @IBOutlet var tableView: UITableView!
         
         override func viewDidLoad() {
@@ -47,27 +42,22 @@ import UIKit
       
         @IBAction func unwindSalvar(segue:UIStoryboardSegue) {
             let svc = segue.source as! CriandoAtividadeViewController
-            
-            if svc.isAlteracao{
-                self.atividades[self.atividadeSelecionadaPosicao[0]][self.atividadeSelecionadaPosicao[1]] = svc.atividade!
+                    
+            if let _	 = self.tableView.indexPathForSelectedRow{
+                self.tableView.reloadData()
             }else{
                 self.atividades[0].append(svc.atividade!)
+                self.tableView.reloadData()
             }
-            
-             
-            self.tableView.reloadData()
          }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if(segue.identifier == "exibirAtividadeDetalhe"){
-                if let atividade = self.atividadeSelecionada {
-                    let svc = segue.destination as! CriandoAtividadeViewController
+                if let indexPath = self.tableView.indexPathForSelectedRow{
+                    let dvc = segue.destination as! CriandoAtividadeViewController
                     
-                    svc.atividade = atividade
-                    svc.isAlteracao = true
+                    dvc.atividade = atividades[indexPath.section][indexPath.row]
                 }
-                
-                self.atividadeSelecionada = nil
             }
         }
     }
@@ -75,13 +65,7 @@ import UIKit
     extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            self.atividadeSelecionadaPosicao.removeAll()
-
-            self.atividadeSelecionada = atividades[indexPath.section][indexPath.row]
-        
-            self.atividadeSelecionadaPosicao.append(indexPath.section)
-            self.atividadeSelecionadaPosicao.append(indexPath.row)
-
+           
             performSegue(withIdentifier: "exibirAtividadeDetalhe", sender: self)
         }
         

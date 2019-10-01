@@ -21,7 +21,6 @@ class AtividadeTableViewCell: UITableViewCell {
         override func awakeFromNib() {
             super.awakeFromNib()
             
-    
     }
 
     

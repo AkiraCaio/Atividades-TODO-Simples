@@ -14,34 +14,29 @@ class CriandoAtividadeViewController: UIViewController {
     @IBOutlet weak var atividadePrioridade: UISegmentedControl!
     
     var atividade: Atividade?
-    var isAlteracao: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isAlteracao {
-            if let atividade = self.atividade {
-                self.ativadeNome.text = atividade.nome
-                self.atividadePrioridade.selectedSegmentIndex = atividade.prioridade.rawValue
-            }
-            
+        if let atividade = self.atividade {
+            self.ativadeNome.text = atividade.nome
+            self.atividadePrioridade.selectedSegmentIndex = atividade.prioridade.rawValue
         }
         
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.isAlteracao = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "novo"){
-            let nome = self.ativadeNome.text ?? ""
-            let prioridade = PrioridadeEnum(rawValue:self.atividadePrioridade.selectedSegmentIndex) ?? PrioridadeEnum.BAIXA
-            
-            self.atividade = Atividade(nome: nome, prioridade: prioridade)
+            if let atividade = self.atividade {
+                atividade.nome = self.ativadeNome.text ?? ""
+                atividade.prioridade = PrioridadeEnum(rawValue:self.atividadePrioridade.selectedSegmentIndex) ?? PrioridadeEnum.BAIXA
+            }else{
+                let nome = self.ativadeNome.text ?? ""
+                let prioridade = PrioridadeEnum(rawValue:self.atividadePrioridade.selectedSegmentIndex) ?? PrioridadeEnum.BAIXA
+                
+                self.atividade = Atividade(nome: nome, prioridade: prioridade)
+            }
         }
-        
-        
     }
 
     /*
