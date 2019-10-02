@@ -9,9 +9,10 @@
 import UIKit
 
 class CriandoAtividadeViewController: UIViewController {
-
+    
     @IBOutlet weak var ativadeNome: UITextField!
     @IBOutlet weak var atividadePrioridade: UISegmentedControl!
+    @IBOutlet weak var atividadeConcluida: UISwitch!
     
     var atividade: Atividade?
     
@@ -21,8 +22,10 @@ class CriandoAtividadeViewController: UIViewController {
         if let atividade = self.atividade {
             self.ativadeNome.text = atividade.nome
             self.atividadePrioridade.selectedSegmentIndex = atividade.prioridade.rawValue
+            self.atividadeConcluida.isOn = atividade.concluida
+            
+            self.atividadeConcluida.isHidden = false
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,6 +33,7 @@ class CriandoAtividadeViewController: UIViewController {
             if let atividade = self.atividade {
                 atividade.nome = self.ativadeNome.text ?? ""
                 atividade.prioridade = PrioridadeEnum(rawValue:self.atividadePrioridade.selectedSegmentIndex) ?? PrioridadeEnum.BAIXA
+                atividade.concluida = self.atividadeConcluida.isOn
             }else{
                 let nome = self.ativadeNome.text ?? ""
                 let prioridade = PrioridadeEnum(rawValue:self.atividadePrioridade.selectedSegmentIndex) ?? PrioridadeEnum.BAIXA
@@ -38,15 +42,4 @@ class CriandoAtividadeViewController: UIViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
