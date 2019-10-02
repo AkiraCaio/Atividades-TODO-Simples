@@ -77,9 +77,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EmD-kL-D9r">
+                                <rect key="frame" x="182.5" y="451" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Gv1-WX-PlM" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="EmD-kL-D9r" secondAttribute="bottom" constant="380" id="4Ty-Af-4Db"/>
                             <constraint firstItem="gyE-Lp-AY6" firstAttribute="top" secondItem="Gv1-WX-PlM" secondAttribute="top" constant="64" id="4nu-1Z-bhX"/>
                             <constraint firstItem="56P-kl-8qs" firstAttribute="leading" secondItem="f9r-MM-ioM" secondAttribute="leading" id="5md-c7-yf4"/>
                             <constraint firstItem="McQ-Iw-KLT" firstAttribute="centerX" secondItem="Gv1-WX-PlM" secondAttribute="centerX" id="8Hf-f8-ZHX"/>
@@ -93,7 +97,9 @@
                             <constraint firstItem="f9r-MM-ioM" firstAttribute="top" secondItem="gyE-Lp-AY6" secondAttribute="bottom" constant="32" id="PwA-au-30l"/>
                             <constraint firstItem="Gv1-WX-PlM" firstAttribute="trailing" secondItem="gyE-Lp-AY6" secondAttribute="trailing" constant="16" id="RRr-q0-N2F"/>
                             <constraint firstItem="56P-kl-8qs" firstAttribute="trailing" secondItem="f9r-MM-ioM" secondAttribute="trailing" id="VuV-gn-HJS"/>
+                            <constraint firstItem="EmD-kL-D9r" firstAttribute="centerX" secondItem="Gv1-WX-PlM" secondAttribute="centerX" id="X0u-Df-PC1"/>
                             <constraint firstItem="56P-kl-8qs" firstAttribute="top" secondItem="f9r-MM-ioM" secondAttribute="bottom" constant="64" id="lgj-Sf-f5L"/>
+                            <constraint firstItem="EmD-kL-D9r" firstAttribute="top" secondItem="McQ-Iw-KLT" secondAttribute="bottom" constant="64" id="vFJ-qD-2zs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gv1-WX-PlM"/>
                     </view>
@@ -106,6 +112,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ativadeNome" destination="f9r-MM-ioM" id="n5p-l3-cuV"/>
+                        <outlet property="atividadeConcluida" destination="EmD-kL-D9r" id="J1m-5y-HtV"/>
                         <outlet property="atividadePrioridade" destination="McQ-Iw-KLT" id="PsB-Hb-uE7"/>
                     </connections>
                 </viewController>

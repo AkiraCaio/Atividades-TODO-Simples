@@ -29,9 +29,15 @@
                             <segment title="Media"/>
                             <segment title="Alta"/>
                         </segments>
+                        <connections>
+                            <action selector="mudarPrioridade:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Q6c-Ry-27T"/>
+                        </connections>
                     </segmentedControl>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YU2-kW-nrM">
                         <rect key="frame" x="163" y="150" width="51" height="31"/>
+                        <connections>
+                            <action selector="conclusaoAtividade:" destination="KGk-i7-Jjw" eventType="valueChanged" id="gtI-Bz-vnB"/>
+                        </connections>
                     </switch>
                 </subviews>
                 <constraints>
