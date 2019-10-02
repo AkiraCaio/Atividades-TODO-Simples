@@ -127,3 +127,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension MainViewController: AtividadeTableViewCellDelegate{
+    func concluirAtividade(atividade: Atividade) {
+        
+        if atividade.concluida{
+            if let indexRow = self.atividades[0].firstIndex(where: {$0.nome == atividade.nome}){
+                self.atividades[0].remove(at: indexRow)
+                self.atividades[1].append(atividade)
+            }
+        }else{
+            if let indexRow = self.atividades[1].firstIndex(where: {$0.nome == atividade.nome}){
+                self.atividades[1].remove(at: indexRow)
+                self.atividades[0].append(atividade)
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+}
